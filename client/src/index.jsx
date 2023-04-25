@@ -10,6 +10,15 @@ const App = () => {
 
   const search = (term) => {
     console.log(`${term} was searched`);
+    $.ajax({
+      url: '/repos',
+      method: 'POST',
+      data: JSON.stringify({username: term}),
+      conetentType: 'application/json',
+      success: function() {
+        console.log('Success');
+      }
+    })
   }
 
   return (
